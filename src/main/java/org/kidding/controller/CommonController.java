@@ -3,6 +3,7 @@ package org.kidding.controller;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.log4j.Log4j;
@@ -11,6 +12,11 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class CommonController {
 
+	@GetMapping({"/customLogin", "/customLogout"})
+	public void customLogin() {
+		log.info("custom login page");
+	}
+	
 	@RequestMapping("/accessError")
 	public void accessError(Authentication auth, Model model) {
 		
@@ -18,5 +24,7 @@ public class CommonController {
 		model.addAttribute("msg", "Access Error");
 		
 	}
+	
+	
 	
 }

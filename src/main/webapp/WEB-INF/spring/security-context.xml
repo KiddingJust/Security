@@ -5,16 +5,22 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
+	<bean id="LoginHandler" class="org.kidding.security.CustomLoginSuccessHandler">
+	</bean>
+	
 	<security:http>
-		
 		<security:intercept-url pattern="/sample/all" access="permitAll" />
 		<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')" />
 		<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')" />
 		
 		<!-- security:intercept-url 에서 설정해준 access 권한이 없으면, uri 접속 시 아래에서 설정해준 곳으로 이동한다. form-login -->
-		<security:form-login login-page="" default-target-url="" />
+		<security:form-login login-page="/customLogin"
+		authentication-success-handler-ref="loginHandler"
+		authentication-failure-handler-ref="loginHandler" />
+		<!--  <security:form-login />  -->		
 		
-		<security:access-denied-handler error-page="/accessError" />
+		<!--<security:access-denied-handler error-page="/accessError" /> -->
+		<security:logout logout-url="/customLogout" />
 		
 	</security:http>
 	<security:authentication-manager>
