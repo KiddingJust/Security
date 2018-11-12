@@ -29,7 +29,7 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
 		});
 		log.info("--------------------------");
 		
-		super.onAuthenticationSuccess(request, response,authentication);
+		super.onAuthenticationSuccess(request, response, authentication);
 	}
 
 	//인증에 실패했을 경우
@@ -38,6 +38,8 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
 			AuthenticationException exception) throws IOException, ServletException {
 		
 		log.info("login fail");
+		log.info(request);
+		log.info(response);
 		log.info(exception);
 		
 		

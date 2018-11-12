@@ -10,6 +10,7 @@
 <body>
 
 	<h1><c:out value="${msg}"/></h1>
+	<a href="/customLogout">Logout</a>
 
 </body>
 </html>
