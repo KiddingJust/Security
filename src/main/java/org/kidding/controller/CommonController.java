@@ -20,15 +20,12 @@ public class CommonController {
 	
 	@RequestMapping("/accessError")
 	public void accessError(Authentication auth, Model model) {
-		
 		log.info(auth);
 		model.addAttribute("msg", "Access Error");
-		
 	}
 	
 	@GetMapping("/customLogout")
 	public void logoutGET() {
-		
 		log.info("custom logout");
 	}
 	

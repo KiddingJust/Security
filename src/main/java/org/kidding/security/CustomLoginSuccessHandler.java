@@ -42,6 +42,7 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
 		log.info(response);
 		log.info(exception);
 		
+		response.sendRedirect("/customLogin?ex001");
 		
 	}
 

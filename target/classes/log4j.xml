@@ -35,6 +35,10 @@
 	<logger name="org.springframework.security">
 		<level value="info" />
 	</logger>
+	
+		<logger name="org.kidding.security">
+		<level value="debug" />
+	</logger>
 
 	<!-- Root Logger -->
 	<root>
